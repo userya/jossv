@@ -22,7 +22,7 @@ public class Entity implements DefineAble {
 	 * select 子 的时候 ,套一层 加入查询条件 (select 1 from xxx tbl where ${tbl.id} = table?子实体别名:实体别名 ${c.pid} : )
 	 * ${tbl.id} = 
 	 */
-	private Map<String, Relationship> chilren = new LinkedHashMap<String, Relationship>();
+	private Map<String, Relationship> children = new LinkedHashMap<String, Relationship>();
 	
 	private EntityFactory entityFactory;
 
@@ -30,9 +30,10 @@ public class Entity implements DefineAble {
 		if(rels.containsKey(alias)) {
 			return rels.get(alias);
 		}
-		if(chilren.containsKey(alias)) {
-			return chilren.get(alias);
+		if(children.containsKey(alias)) {
+			return children.get(alias);
 		}
+
 		return null;
 	}
 	
@@ -61,12 +62,12 @@ public class Entity implements DefineAble {
 		this.rels = rels;
 	}
 
-	public Map<String, Relationship> getChilren() {
-		return chilren;
+	public Map<String, Relationship> getChildren() {
+		return children;
 	}
 
-	public void setChilren(Map<String, Relationship> chilren) {
-		this.chilren = chilren;
+	public void setChildren(Map<String, Relationship> children) {
+		this.children = children;
 	}
 
 	public String getId() {

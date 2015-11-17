@@ -16,6 +16,10 @@ public interface AppContainer {
 
     void invokePageService(HttpServletRequest request, HttpServletResponse response, String appid, String pageId, String serviceId);
 
+    void addApp(String appid);
+
+    void removeApp(String appid);
+
     void shutdown(String appid);
 
     void start(String appid);

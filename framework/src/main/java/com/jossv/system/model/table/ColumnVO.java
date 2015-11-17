@@ -1,4 +1,4 @@
-package com.jossv.system.model;
+package com.jossv.system.model.table;
 
 import com.jossv.framework.dao.annotation.Table;
 
@@ -9,6 +9,16 @@ import com.jossv.framework.dao.annotation.Table;
 public class ColumnVO extends com.jossv.framework.dao.model.Column {
 
     private Long id;
+
+    private Long tableId;
+
+    public Long getTableId() {
+        return tableId;
+    }
+
+    public void setTableId(Long tableId) {
+        this.tableId = tableId;
+    }
 
     public Long getId() {
         return id;

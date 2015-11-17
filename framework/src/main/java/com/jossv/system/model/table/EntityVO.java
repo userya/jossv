@@ -1,4 +1,4 @@
-package com.jossv.system.model;
+package com.jossv.system.model.table;
 
 import com.jossv.framework.dao.annotation.Column;
 
@@ -12,6 +12,16 @@ public class EntityVO {
 
     @Column(length = 2000)
     private String content;
+
+    private Long appId;
+
+    public Long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(Long appId) {
+        this.appId = appId;
+    }
 
     public Long getId() {
         return id;

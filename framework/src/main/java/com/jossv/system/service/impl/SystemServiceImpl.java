@@ -1,6 +1,7 @@
 package com.jossv.system.service.impl;
 
 import com.jossv.framework.dao.DaoFactory;
+import com.jossv.system.model.table.AppVO;
 import com.jossv.system.service.SystemService;
 
 /**
@@ -16,5 +17,12 @@ public class SystemServiceImpl implements SystemService {
 
     public void setDaoFactory(DaoFactory daoFactory) {
         this.daoFactory = daoFactory;
+    }
+
+    @Override
+    public AppVO getApp(Long id) {
+
+
+        return null;
     }
 }

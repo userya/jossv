@@ -30,6 +30,19 @@ public class AppContainerImpl implements AppContainer {
     }
 
     @Override
+    public void addApp(String appid) {
+        if(appMap.containsKey(appid)){
+            throw new RuntimeException("app is exists, pleas check " + appid);
+        }
+
+    }
+
+    @Override
+    public void removeApp(String appid) {
+
+    }
+
+    @Override
     public void shutdown(String appid) {
         appMap.get(appid).shutdown();
     }
