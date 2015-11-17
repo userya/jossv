@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import org.springframework.util.ResourceUtils;
 
-import com.jossv.framework.dao.annotaion.factory.impl.ClassTableFactory;
+import com.jossv.framework.dao.annotation.factory.impl.ClassTableFactory;
 import com.jossv.framework.dao.generator.ddl.SchemaGenerator;
 
 public class GenTest {

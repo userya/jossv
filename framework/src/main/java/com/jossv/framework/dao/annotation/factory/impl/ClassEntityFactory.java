@@ -1,4 +1,4 @@
-package com.jossv.framework.dao.annotaion.factory.impl;
+package com.jossv.framework.dao.annotation.factory.impl;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -15,11 +15,11 @@ import org.springframework.util.ReflectionUtils.FieldCallback;
 
 import com.jossv.framework.dao.EntityFactory;
 import com.jossv.framework.dao.TableFactory;
-import com.jossv.framework.dao.annotaion.Entity;
-import com.jossv.framework.dao.annotaion.Main;
-import com.jossv.framework.dao.annotaion.RefUtils;
-import com.jossv.framework.dao.annotaion.Relationship;
-import com.jossv.framework.dao.annotaion.RelationshipType;
+import com.jossv.framework.dao.annotation.Entity;
+import com.jossv.framework.dao.annotation.Main;
+import com.jossv.framework.dao.annotation.RefUtils;
+import com.jossv.framework.dao.annotation.Relationship;
+import com.jossv.framework.dao.annotation.RelationshipType;
 import com.jossv.framework.dao.model.DefineAble;
 import com.jossv.framework.dao.sql.Condition;
 

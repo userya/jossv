@@ -15,12 +15,12 @@ public class Table extends DbAtom implements DefineAble {
 
 	private String pkColumn = "id";
 
-	private boolean view;
+	private Boolean view ;
 	
-	private boolean virtual;
+	private Boolean virtual;
 	
 	private List<Column> columns = new ArrayList<Column>();
-	
+
 	public String getId() {
 		return id;
 	}
@@ -45,14 +45,6 @@ public class Table extends DbAtom implements DefineAble {
 		this.label = label;
 	}
 
-	public List<Column> getColumns() {
-		return columns;
-	}
-
-	public void setColumns(List<Column> columns) {
-		this.columns = columns;
-	}
-
 	public String getPkColumn() {
 		return pkColumn;
 	}
@@ -61,22 +53,27 @@ public class Table extends DbAtom implements DefineAble {
 		this.pkColumn = pkColumn;
 	}
 
-	public boolean isView() {
+	public Boolean getView() {
 		return view;
 	}
 
-	public void setView(boolean view) {
+	public void setView(Boolean view) {
 		this.view = view;
 	}
 
-	public boolean isVirtual() {
+	public Boolean getVirtual() {
 		return virtual;
 	}
 
-	public void setVirtual(boolean virtual) {
+	public void setVirtual(Boolean virtual) {
 		this.virtual = virtual;
 	}
 
-	
+	public List<Column> getColumns() {
+		return columns;
+	}
 
+	public void setColumns(List<Column> columns) {
+		this.columns = columns;
+	}
 }

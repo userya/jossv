@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <import resource="classpath*:appEngineContext.xml"></import>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="classpath:jdbc.properties"/>
@@ -24,13 +25,24 @@
         <property name="testOnReturn" value="false" />
     </bean>
 
-
-    <bean id="service">
-
+    <bean id="classTableFactory" class="com.jossv.framework.dao.annotation.factory.impl.ClassTableFactory">
+        <property name="scanPackage" value="com.jossv.model"></property>
     </bean>
 
-    <bean id="page">
-
+    <bean id="classEntityFactory" class="com.jossv.framework.dao.annotation.factory.impl.ClassEntityFactory">
+        <property name="scanPackage" value="com.jossv.model"></property>
+        <property name="tableFactory" ref="classTableFactory"></property>
     </bean>
+
+    <bean id="systemDaoFactory" class="com.jossv.framework.dao.DaoFactoryImpl">
+        <constructor-arg ref="classEntityFactory"></constructor-arg>
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
+
+    <bean id="systemService" class="com.jossv.service.impl.SystemServiceImpl">
+        <property name="daoFactory" ref="systemDaoFactory"></property>
+    </bean>
+
+
 
 </beans>

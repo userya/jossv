@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.jossv.framework.dao.BaseObject;
 import com.jossv.framework.dao.EntityFactory;
-import com.jossv.framework.dao.annotaion.factory.impl.ClassEntityFactory;
+import com.jossv.framework.dao.annotation.factory.impl.ClassEntityFactory;
 import com.jossv.framework.dao.model.Entity;
 import com.jossv.framework.dao.model.Table;
 import com.jossv.framework.dao.sql.VirtualColumn;

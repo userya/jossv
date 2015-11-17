@@ -1,4 +1,4 @@
-package com.jossv.framework.dao.annotaion;
+package com.jossv.framework.dao.annotation;
 
 import java.io.File;
 import java.io.IOException;

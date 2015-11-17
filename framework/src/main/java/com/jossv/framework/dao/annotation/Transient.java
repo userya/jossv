@@ -1,4 +1,4 @@
-package com.jossv.framework.dao.annotaion;
+package com.jossv.framework.dao.annotation;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;

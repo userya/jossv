@@ -1,4 +1,4 @@
-package com.jossv.framework.dao.annotaion;
+package com.jossv.framework.dao.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -6,12 +6,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface Entity {
-
-//	String name() default "";
+public @interface Main {
 	
-//	String alias() default "";
+	String alias() ;
+	
+	String condition() default "";
+	
+	
 }

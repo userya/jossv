@@ -1,13 +1,14 @@
-package com.jossv.framework.dao.annotaion.factory.impl;
+package com.jossv.framework.dao.annotation.factory.impl;
 
 import com.alibaba.druid.pool.DruidDataSource;
 
-public class DatabaseTableFactory extends ClassTableFactory {
+public class DatabaseEntityFactory extends ClassEntityFactory {
 
 	private DruidDataSource dataSource;
-
+	
 	@Override
-	public void init() {
+	public void init() throws ClassNotFoundException {
+		
 		super.init();
 	}
 
@@ -18,5 +19,4 @@ public class DatabaseTableFactory extends ClassTableFactory {
 	public void setDataSource(DruidDataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-
 }

@@ -1,6 +1,6 @@
 package com.jossv.framework.dao.model;
 
-import com.jossv.framework.dao.annotaion.RelationshipType;
+import com.jossv.framework.dao.annotation.RelationshipType;
 import com.jossv.framework.dao.sql.Condition;
 
 public class Relationship {

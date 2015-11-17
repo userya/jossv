@@ -1,4 +1,4 @@
-package com.jossv.framework.dao.annotaion.factory.impl;
+package com.jossv.framework.dao.annotation.factory.impl;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -9,10 +9,10 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.ReflectionUtils.FieldCallback;
 
 import com.jossv.framework.dao.TableFactory;
-import com.jossv.framework.dao.annotaion.Column;
-import com.jossv.framework.dao.annotaion.RefUtils;
-import com.jossv.framework.dao.annotaion.Table;
-import com.jossv.framework.dao.annotaion.Transient;
+import com.jossv.framework.dao.annotation.Column;
+import com.jossv.framework.dao.annotation.RefUtils;
+import com.jossv.framework.dao.annotation.Table;
+import com.jossv.framework.dao.annotation.Transient;
 import com.jossv.framework.dao.type.ColumnType;
 import com.jossv.framework.dao.type.ColumnTypeUtils;
 

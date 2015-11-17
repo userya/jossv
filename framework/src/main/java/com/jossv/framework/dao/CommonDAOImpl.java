@@ -12,7 +12,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameterValue;
 
-import com.jossv.framework.dao.annotaion.factory.impl.ClassEntityFactory;
+import com.jossv.framework.dao.annotation.factory.impl.ClassEntityFactory;
 import com.jossv.framework.dao.model.DefineAble;
 import com.jossv.framework.dao.model.Entity;
 import com.jossv.framework.dao.model.Table;
