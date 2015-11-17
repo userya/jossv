@@ -18,6 +18,12 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>com.jossv</groupId>
 			<artifactId>framework</artifactId>
