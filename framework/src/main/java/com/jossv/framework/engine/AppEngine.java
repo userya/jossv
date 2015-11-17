@@ -20,4 +20,14 @@ public interface AppEngine {
 
     void processInvoke(HttpServletRequest request, HttpServletResponse response, String pageId, String serviceId);
 
+    void shutdown();
+
+    void start();
+
+    void restart();
+
+    void refresh();
+
+    int getStatus(); // normal, starting, stopped, updating
+
 }

@@ -38,6 +38,31 @@ public class AppEngineImpl implements AppEngine {
 
     }
 
+    @Override
+    public void shutdown() {
+
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void restart() {
+
+    }
+
+    @Override
+    public void refresh() {
+
+    }
+
+    @Override
+    public int getStatus() {
+        return 0;
+    }
+
     public DataSource getDataSource() {
         return dataSource;
     }

@@ -26,11 +26,11 @@
     </bean>
 
     <bean id="classTableFactory" class="com.jossv.framework.dao.annotation.factory.impl.ClassTableFactory">
-        <property name="scanPackage" value="com.jossv.model"></property>
+        <property name="scanPackage" value="com.jossv.system.model"></property>
     </bean>
 
     <bean id="classEntityFactory" class="com.jossv.framework.dao.annotation.factory.impl.ClassEntityFactory">
-        <property name="scanPackage" value="com.jossv.model"></property>
+        <property name="scanPackage" value="com.jossv.system.model"></property>
         <property name="tableFactory" ref="classTableFactory"></property>
     </bean>
 
@@ -39,7 +39,7 @@
         <constructor-arg ref="dataSource"></constructor-arg>
     </bean>
 
-    <bean id="systemService" class="com.jossv.service.impl.SystemServiceImpl">
+    <bean id="systemService" class="com.jossv.system.service.impl.SystemServiceImpl">
         <property name="daoFactory" ref="systemDaoFactory"></property>
     </bean>
 

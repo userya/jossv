@@ -16,4 +16,13 @@ public interface AppContainer {
 
     void invokePageService(HttpServletRequest request, HttpServletResponse response, String appid, String pageId, String serviceId);
 
+    void shutdown(String appid);
+
+    void start(String appid);
+
+    void restart(String appid);
+
+    void refresh(String appid);
+
+    int getStatus(String appid); // normal, starting, stopped, updating
 }

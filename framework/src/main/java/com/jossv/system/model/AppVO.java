@@ -1,4 +1,4 @@
-package com.jossv.model;
+package com.jossv.system.model;
 
 import com.jossv.framework.dao.annotation.Column;
 import com.jossv.framework.dao.annotation.Table;

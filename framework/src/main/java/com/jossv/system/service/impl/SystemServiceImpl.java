@@ -1,7 +1,7 @@
-package com.jossv.service.impl;
+package com.jossv.system.service.impl;
 
 import com.jossv.framework.dao.DaoFactory;
-import com.jossv.service.SystemService;
+import com.jossv.system.service.SystemService;
 
 /**
  * Created by yangjiankang on 15/11/17.

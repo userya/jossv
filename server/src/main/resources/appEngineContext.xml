@@ -5,7 +5,7 @@
 
 
     <bean id="appContainer" class="com.jossv.framework.engine.AppContainerImpl">
-
+        <property name="systemService" ref="systemService"></property>
     </bean>
 
 </beans>
