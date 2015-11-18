@@ -14,7 +14,7 @@ public class PageController {
 
     private AppContainer appContainer;
 
-    @RequestMapping("/page/{appId}/{pageId}")
+    @RequestMapping("/p/{appId}/{pageId}")
     public void page(@PathVariable String appId, @PathVariable String pageId,
                      HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (!appContainer.contain(appId)) {
@@ -23,7 +23,7 @@ public class PageController {
         appContainer.invokePage(request, response, appId, pageId);
     }
 
-    @RequestMapping("/page/{appId}/{pageId}/{serviceId}")
+    @RequestMapping("/p/{appId}/{pageId}/{serviceId}")
     public void page(@PathVariable String appId, @PathVariable String pageId, @PathVariable String serviceId,
                      HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (!appContainer.contain(appId)) {

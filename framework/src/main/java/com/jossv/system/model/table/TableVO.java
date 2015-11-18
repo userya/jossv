@@ -6,6 +6,14 @@ package com.jossv.system.model.table;
 @com.jossv.framework.dao.annotation.Table(name = "t_table")
 public class TableVO extends com.jossv.framework.dao.model.Table {
 
+	private Long stageId;
 
+    public Long getStageId() {
+		return stageId;
+	}
+
+	public void setStageId(Long stageId) {
+		this.stageId = stageId;
+	}
 
 }

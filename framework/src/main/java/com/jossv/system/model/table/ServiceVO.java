@@ -8,15 +8,15 @@ public class ServiceVO {
 
     private Long id;
 
-    private Long appId;
+    private Long stageId;
 
-    public Long getAppId() {
-        return appId;
-    }
+    public Long getStageId() {
+		return stageId;
+	}
 
-    public void setAppId(Long appId) {
-        this.appId = appId;
-    }
+	public void setStageId(Long stageId) {
+		this.stageId = stageId;
+	}
 
     public Long getId() {
         return id;

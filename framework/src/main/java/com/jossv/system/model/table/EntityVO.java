@@ -13,15 +13,15 @@ public class EntityVO {
     @Column(length = 2000)
     private String content;
 
-    private Long appId;
+    private Long stageId;
 
-    public Long getAppId() {
-        return appId;
-    }
+    public Long getStageId() {
+		return stageId;
+	}
 
-    public void setAppId(Long appId) {
-        this.appId = appId;
-    }
+	public void setStageId(Long stageId) {
+		this.stageId = stageId;
+	}
 
     public Long getId() {
         return id;
@@ -38,4 +38,6 @@ public class EntityVO {
     public void setContent(String content) {
         this.content = content;
     }
+
+	
 }
