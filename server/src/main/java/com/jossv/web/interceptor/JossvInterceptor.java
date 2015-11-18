@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+/**
+ * 权限过滤,etc
+ */
 public class JossvInterceptor extends HandlerInterceptorAdapter {
 
 	
@@ -15,7 +18,7 @@ public class JossvInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		log.debug("path: {}", request.getRequestURI()); 
+		log.debug("path: {}", request.getRequestURI());  
 		return super.preHandle(request, response, handler);
 	}
 	

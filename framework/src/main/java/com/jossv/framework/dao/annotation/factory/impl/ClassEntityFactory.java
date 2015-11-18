@@ -117,7 +117,7 @@ public class ClassEntityFactory implements EntityFactory {
 						if (type.equals(RelationshipType.ref)) {
 							e.getRels().put(alias, sp);
 						} else if (type.equals(RelationshipType.child)) {
-							e.getChilren().put(alias, sp);
+							e.getChildren().put(alias, sp);
 						} else {
 							// do nothing
 						}

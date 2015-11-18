@@ -132,7 +132,7 @@ public class SchemaGenerator {
 		Mappings mappings = configuration.createMappings();
 		if (maps != null) {
 			for (com.jossv.framework.dao.model.Table table : maps.values()) {
-				if (table.isView() || table.isVirtual()) {
+				if (table.getView() || table.getVirtual()) {
 					continue;
 				}
 				this.getTable(table, mappings);
@@ -148,7 +148,7 @@ public class SchemaGenerator {
 		Mappings mappings = configuration.createMappings();
 		if (maps != null) {
 			for (com.jossv.framework.dao.model.Table table : maps.values()) {
-				if (table.isView() || table.isVirtual()) {
+				if (table.getView() || table.getVirtual()) {
 					continue;
 				}
 				this.getTable(table, mappings);

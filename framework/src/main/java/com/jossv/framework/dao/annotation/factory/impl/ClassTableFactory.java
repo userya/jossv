@@ -36,6 +36,7 @@ public class ClassTableFactory implements TableFactory {
 		synchronized (lock) {
 			try {
 				Class<?>[] tables = RefUtils.getClasses(scanPackage, Table.class);
+
 				if (tables != null) {
 					for (int i = 0; i < tables.length; i++) {
 						com.jossv.framework.dao.model.Table table = createTable(tables[i]);
