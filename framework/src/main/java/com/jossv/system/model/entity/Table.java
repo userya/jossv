@@ -13,6 +13,7 @@ import com.jossv.system.model.table.TableVO;
 @Entity
 public class Table {
 	
+	//(select * from table t where t.id = ?)
 	@Main(alias = "t")
 	private TableVO table ;
 	

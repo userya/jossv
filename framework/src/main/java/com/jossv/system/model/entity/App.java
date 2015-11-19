@@ -15,7 +15,7 @@ public class App {
 	@Main(alias = "a")
 	private AppVO app;
 
-	@Relationship(alias = "stage", condition = "${stage.s.appId} = ${a.id}", type = RelationshipType.child)
+	@Relationship(alias = "stage", condition = "${s.appId} = ${a.id}", type = RelationshipType.child, sourceId = "s.appId", targetId = "a.id")
 	private List<Stage> stage = new ArrayList<>();
 
 	public AppVO getApp() {

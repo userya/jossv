@@ -15,9 +15,9 @@ public class Table extends DbAtom implements DefineAble {
 
 	private String pkColumn = "id";
 
-	private Boolean view ;
+	private Boolean view = false;
 	
-	private Boolean virtual;
+	private Boolean virtual = false;
 	
 	private List<Column> columns = new ArrayList<Column>();
 

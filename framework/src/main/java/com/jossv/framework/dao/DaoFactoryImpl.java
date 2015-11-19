@@ -47,7 +47,7 @@ public class DaoFactoryImpl implements DaoFactory {
 				da = entityFactory.getTableFactory().getTable(id);
 			}
 			if (da != null) {
-				CommonDAOImpl<T> dao = new CommonDAOImpl<T>(jdbcTemplate, entityFactory, da, clazz);
+				CommonDAOImpl<T> dao = new CommonDAOImpl<T>(this, jdbcTemplate, entityFactory, da, clazz);
 				daoMap.put(id, dao);
 			} else {
 				throw new RuntimeException("can not found id with :" + id);
@@ -60,6 +60,10 @@ public class DaoFactoryImpl implements DaoFactory {
 		if (daoMap.containsKey(id)) {
 			daoMap.remove(id);
 		}
+	}
+	
+	public void initSchema(){
+		this.schemaGenerator.create(entityFactory.getTableFactory());
 	}
 
 	public SchemaGenerator getSchemaGenerator() {

@@ -16,4 +16,9 @@ public @interface Relationship {
 	RelationshipType type() default RelationshipType.ref;
 	
 	String condition() default "";
+	
+	String targetId() default "";
+	
+	String sourceId() default "";
+	
 }

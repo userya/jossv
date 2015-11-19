@@ -108,9 +108,14 @@ public class ClassEntityFactory implements EntityFactory {
 						String alias = ship.alias();
 						String condition = ship.condition();
 						RelationshipType type = ship.type();
+						
 						com.jossv.framework.dao.model.Relationship sp = new com.jossv.framework.dao.model.Relationship();
+						sp.setSourceId(ship.sourceId());
+						sp.setTargetId(ship.targetId());
 						sp.setAlias(alias);
 						sp.setRelObject(d);
+						sp.setTargetClass(fieldClass);
+						sp.setRelObjectId(fieldClass.getName());
 						sp.setCondition(
 								(condition == null || condition.trim().equals("")) ? null : new Condition(condition));
 						sp.setType(type);

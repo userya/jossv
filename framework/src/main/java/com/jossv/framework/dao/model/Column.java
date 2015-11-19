@@ -1,14 +1,25 @@
 package com.jossv.framework.dao.model;
 
+import com.jossv.framework.dao.type.ColumnType;
+
 public class Column {
 	
 	private String name;
+	@com.jossv.framework.dao.annotation.Column(name="_type")
 	private String type = "STRING";
-	private boolean unique = false;
-	private boolean nullable = true;
-	private int length = 255;
-	private int precision;
-	private int scale;
+	@com.jossv.framework.dao.annotation.Column(name="_uniq", type=ColumnType.BOOLEAN)
+	private Boolean unique = false;
+	@com.jossv.framework.dao.annotation.Column(name="_nullable", type=ColumnType.BOOLEAN)
+	private Boolean nullable = true;
+	@com.jossv.framework.dao.annotation.Column(name="_len", type=ColumnType.INTEGER)
+	private Integer length = 255;
+	
+	@com.jossv.framework.dao.annotation.Column(name="_precision", type=ColumnType.INTEGER)
+	private Integer precision = 0;
+	@com.jossv.framework.dao.annotation.Column(name="_scale", type=ColumnType.INTEGER)
+	private Integer scale = 0;
+	
+	@com.jossv.framework.dao.annotation.Column(name="_label")
 	private String label;
 	
 	private String columnName;

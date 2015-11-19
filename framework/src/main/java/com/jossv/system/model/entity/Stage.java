@@ -18,6 +18,7 @@ public class Stage {
 	@Main(alias = "s")
 	private StageVO stage ;
 	
+	//(select * from table t where t.id = ? and exists (select 1 from (select * from stage s where s.id = tables.))
 	@Relationship(alias = "tbls", condition = "${tbls.t.stageId} = ${s.id}", type = RelationshipType.child)
 	private List<Table> tables = new ArrayList<>();
 	

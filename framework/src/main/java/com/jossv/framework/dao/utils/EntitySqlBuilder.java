@@ -31,7 +31,7 @@ public class EntitySqlBuilder {
 		} else {
 			DefineAble t = ((Entity) entityOrTable).getMain();
 			if (t instanceof Table) {
-				return ((Entity) entityOrTable).getMainAlias() + "." + ((Table) entityOrTable).getPkColumn();
+				return ((Entity) entityOrTable).getMainAlias() + "." + ((Table) t).getPkColumn();
 			} else {
 				// 只支持主实体为Table
 				throw new RuntimeException("只支持主实体为Table");

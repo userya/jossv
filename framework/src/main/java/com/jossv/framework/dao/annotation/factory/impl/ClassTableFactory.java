@@ -2,11 +2,15 @@ package com.jossv.framework.dao.annotation.factory.impl;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.ReflectionUtils.FieldCallback;
+import org.springframework.util.TypeUtils;
 
 import com.jossv.framework.dao.TableFactory;
 import com.jossv.framework.dao.annotation.Column;
@@ -62,11 +66,16 @@ public class ClassTableFactory implements TableFactory {
 		tbl.setLabel(label);
 		tbl.setPkColumn(pkColumn);
 
-		ReflectionUtils.doWithLocalFields(clazz, new FieldCallback() {
+		
+		ReflectionUtils.doWithFields(clazz, new FieldCallback() {
 			public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
 				com.jossv.framework.dao.model.Column column = new com.jossv.framework.dao.model.Column();
 				Transient tr = field.getAnnotation(Transient.class);
 				if (tr != null) {
+					return;
+				}
+				Class<?> ft = field.getType();
+				if(ClassUtils.isAssignable(Collection.class, ft)){
 					return;
 				}
 				String name = field.getName();
@@ -93,6 +102,7 @@ public class ClassTableFactory implements TableFactory {
 					codeNumber = col.codeNumber();
 					dateFormat = col.dateFormat();
 				}else {
+					
 					ColumnType t = ColumnTypeUtils.getJotType(field.getType());
 					if(t == null) {
 						throw new RuntimeException("can not found type:" + field.getType());

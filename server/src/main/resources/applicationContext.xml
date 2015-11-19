@@ -34,7 +34,7 @@
         <property name="tableFactory" ref="classTableFactory"></property>
     </bean>
 
-    <bean id="systemDaoFactory" class="com.jossv.framework.dao.DaoFactoryImpl">
+    <bean id="systemDaoFactory" class="com.jossv.framework.dao.DaoFactoryImpl" init-method="initSchema">
         <constructor-arg ref="classEntityFactory"></constructor-arg>
         <constructor-arg ref="dataSource"></constructor-arg>
     </bean>
