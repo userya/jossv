@@ -1,10 +1,16 @@
 package com.jossv.framework.engine;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jossv.framework.dao.DaoFactory;
 import com.jossv.framework.dao.EntityFactory;
 import com.jossv.framework.dao.TableFactory;
 import com.jossv.framework.page.PageFactory;
 import com.jossv.framework.service.ServiceFactory;
+import com.jossv.system.model.entity.App;
+
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,107 +21,143 @@ import javax.sql.DataSource;
  */
 public class AppEngineImpl implements AppEngine {
 
-    private ClassLoader classLoader;
+	private App app;
 
-    private DataSource dataSource;
+	private ClassLoader classLoader;
 
-    private TableFactory tableFactory;
+	private DataSource dataSource;
 
-    private EntityFactory entityFactory;
+	private TableFactory tableFactory;
 
-    private DaoFactory daoFactory;
+	private EntityFactory entityFactory;
 
-    private ServiceFactory serviceFactory;
+	private DaoFactory daoFactory;
 
-    private PageFactory pageFactory;
+	private ServiceFactory serviceFactory;
 
+	private PageFactory pageFactory;
 
-    public void processInvoke(HttpServletRequest request, HttpServletResponse response, String pageId){
+	public void processInvoke(HttpServletRequest request, HttpServletResponse response, String pageId) {
+		try {
+			response.getWriter().println("hello world!!!");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
-    }
+	public void processInvoke(HttpServletRequest request, HttpServletResponse response, String pageId,
+			String serviceId) {
 
-    public void processInvoke(HttpServletRequest request, HttpServletResponse response, String pageId, String serviceId){
+	}
+	
+	
+	protected void initDataSource(){
+		String config = app.getApp().getConfig();
+		JSONObject json = JSON.parseObject(config);
+		
+		
+		DruidDataSource ds = new DruidDataSource();
+		
+		
+		this.dataSource  = ds ;
+	}
 
-    }
+	@Override
+	public void start() {
+		classLoader = null;
+		dataSource = null;
+		tableFactory = null;
+		entityFactory = null;
+		daoFactory = null;
+		serviceFactory = null;
+		pageFactory = null;
+		initDataSource();
+		
+		
+	}
 
-    @Override
-    public void shutdown() {
+	@Override
+	public void shutdown() {
 
-    }
+	}
 
-    @Override
-    public void start() {
+	@Override
+	public void restart() {
 
-    }
+	}
 
-    @Override
-    public void restart() {
+	@Override
+	public void refresh() {
 
-    }
+	}
 
-    @Override
-    public void refresh() {
+	@Override
+	public int getStatus() {
+		return 0;
+	}
 
-    }
+	public DataSource getDataSource() {
+		return dataSource;
+	}
 
-    @Override
-    public int getStatus() {
-        return 0;
-    }
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
-    public DataSource getDataSource() {
-        return dataSource;
-    }
+	public TableFactory getTableFactory() {
+		return tableFactory;
+	}
 
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+	public void setTableFactory(TableFactory tableFactory) {
+		this.tableFactory = tableFactory;
+	}
 
-    public TableFactory getTableFactory() {
-        return tableFactory;
-    }
+	public EntityFactory getEntityFactory() {
+		return entityFactory;
+	}
 
-    public void setTableFactory(TableFactory tableFactory) {
-        this.tableFactory = tableFactory;
-    }
+	public void setEntityFactory(EntityFactory entityFactory) {
+		this.entityFactory = entityFactory;
+	}
 
-    public EntityFactory getEntityFactory() {
-        return entityFactory;
-    }
+	public DaoFactory getDaoFactory() {
+		return daoFactory;
+	}
 
-    public void setEntityFactory(EntityFactory entityFactory) {
-        this.entityFactory = entityFactory;
-    }
+	public void setDaoFactory(DaoFactory daoFactory) {
+		this.daoFactory = daoFactory;
+	}
 
-    public DaoFactory getDaoFactory() {
-        return daoFactory;
-    }
+	public ServiceFactory getServiceFactory() {
+		return serviceFactory;
+	}
 
-    public void setDaoFactory(DaoFactory daoFactory) {
-        this.daoFactory = daoFactory;
-    }
+	public void setServiceFactory(ServiceFactory serviceFactory) {
+		this.serviceFactory = serviceFactory;
+	}
 
-    public ServiceFactory getServiceFactory() {
-        return serviceFactory;
-    }
+	public PageFactory getPageFactory() {
+		return pageFactory;
+	}
 
-    public void setServiceFactory(ServiceFactory serviceFactory) {
-        this.serviceFactory = serviceFactory;
-    }
+	public void setPageFactory(PageFactory pageFactory) {
+		this.pageFactory = pageFactory;
+	}
 
-    public PageFactory getPageFactory() {
-        return pageFactory;
-    }
+	public ClassLoader getClassLoader() {
+		return classLoader;
+	}
 
-    public void setPageFactory(PageFactory pageFactory) {
-        this.pageFactory = pageFactory;
-    }
+	public void setClassLoader(ClassLoader classLoader) {
+		this.classLoader = classLoader;
+	}
 
-    public ClassLoader getClassLoader() {
-        return classLoader;
-    }
+	public App getApp() {
+		return app;
+	}
 
-    public void setClassLoader(ClassLoader classLoader) {
-        this.classLoader = classLoader;
-    }
+	public void setApp(App app) {
+		this.app = app;
+	}
 }

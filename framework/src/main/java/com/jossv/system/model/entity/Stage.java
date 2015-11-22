@@ -19,16 +19,16 @@ public class Stage {
 	private StageVO stage ;
 	
 	//(select * from table t where t.id = ? and exists (select 1 from (select * from stage s where s.id = tables.))
-	@Relationship(alias = "tbls", condition = "${tbls.t.stageId} = ${s.id}", type = RelationshipType.child)
+	@Relationship(alias = "tbls", condition = "${tbls.t.stageId} = ${s.id}", type = RelationshipType.child, sourceId="t.stageId", targetId="s.id")
 	private List<Table> tables = new ArrayList<>();
 	
-	@Relationship(alias = "ents", condition = "${ents.stageId} = ${s.id}", type = RelationshipType.child)
+	@Relationship(alias = "ents", condition = "${ents.stageId} = ${s.id}", type = RelationshipType.child, sourceId="stageId", targetId="s.id")
 	private List<EntityVO> entitis = new ArrayList<>();
 	
-	@Relationship(alias = "servs", condition = "${servs.stageId} = ${s.id}", type = RelationshipType.child)
+	@Relationship(alias = "servs", condition = "${servs.stageId} = ${s.id}", type = RelationshipType.child, sourceId="stageId", targetId="s.id")
 	private List<ServiceVO> services = new ArrayList<>();
 	
-	@Relationship(alias = "pgs", condition = "${pgs.stageId} = ${s.id}", type = RelationshipType.child)
+	@Relationship(alias = "pgs", condition = "${pgs.stageId} = ${s.id}", type = RelationshipType.child, sourceId="stageId", targetId="s.id")
 	private List<PageVO> pages = new ArrayList<>();
 
 	public StageVO getStage() {

@@ -12,6 +12,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.ReflectionUtils.FieldCallback;
+import org.springframework.util.StringUtils;
 
 import com.jossv.framework.dao.EntityFactory;
 import com.jossv.framework.dao.TableFactory;
@@ -116,8 +117,11 @@ public class ClassEntityFactory implements EntityFactory {
 						sp.setRelObject(d);
 						sp.setTargetClass(fieldClass);
 						sp.setRelObjectId(fieldClass.getName());
-						sp.setCondition(
-								(condition == null || condition.trim().equals("")) ? null : new Condition(condition));
+						Condition cnd = (condition == null || condition.trim().equals("")) ? null : new Condition(condition) ;
+						if(cnd == null && StringUtils.hasText(ship.sourceId()) && StringUtils.hasText(ship.targetId())) {
+							cnd = new Condition("${" + ship.sourceId() + "} = ${" + ship.targetId() + "}");
+						}
+						sp.setCondition(cnd);
 						sp.setType(type);
 						if (type.equals(RelationshipType.ref)) {
 							e.getRels().put(alias, sp);

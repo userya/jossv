@@ -6,6 +6,7 @@
   <classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.5/servlet-api-2.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/javax/servlet/jstl/1.2/jstl-1.2.jar" sourcepath="M2_REPO/javax/servlet/jstl/1.2/jstl-1.2-sources.jar"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/fastjson/1.2.4/fastjson-1.2.4.jar" sourcepath="M2_REPO/com/alibaba/fastjson/1.2.4/fastjson-1.2.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/freemarker/freemarker/2.3.21/freemarker-2.3.21.jar" sourcepath="M2_REPO/org/freemarker/freemarker/2.3.21/freemarker-2.3.21-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" sourcepath="M2_REPO/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/druid/0.2.23/druid-0.2.23.jar" sourcepath="M2_REPO/com/alibaba/druid/0.2.23/druid-0.2.23-sources.jar"/>

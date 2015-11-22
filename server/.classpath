@@ -12,6 +12,7 @@
   <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar"/>
   <classpathentry kind="src" path="/framework"/>
+  <classpathentry kind="var" path="M2_REPO/com/alibaba/fastjson/1.2.4/fastjson-1.2.4.jar" sourcepath="M2_REPO/com/alibaba/fastjson/1.2.4/fastjson-1.2.4-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/freemarker/freemarker/2.3.21/freemarker-2.3.21.jar" sourcepath="M2_REPO/org/freemarker/freemarker/2.3.21/freemarker-2.3.21-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" sourcepath="M2_REPO/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21-sources.jar"/>
   <classpathentry kind="var" path="M2_REPO/com/alibaba/druid/0.2.23/druid-0.2.23.jar" sourcepath="M2_REPO/com/alibaba/druid/0.2.23/druid-0.2.23-sources.jar"/>

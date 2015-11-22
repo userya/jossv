@@ -135,39 +135,6 @@ public class CommonDAOImpl<T> implements CommonDAO<T> {
 		return null;
 	}
 
-	// protected Object getValueByEl(T vo, String el) {
-	// if (vo instanceof BaseObject) {
-	// return ((BaseObject) vo).getValue(el);
-	// }
-	// Object r = null;
-	// Object toPut = vo;
-	// int fromIndex = 0;
-	// int index = el.indexOf('.');
-	// String name = el;
-	// try {
-	// while (index != -1) {
-	// String p = el.substring(fromIndex, index);
-	// String propertyName = getPropertyName(toPut.getClass(), p);
-	// if (propertyName == null) {
-	// throw new RuntimeException("can not found property named :" + p);
-	// }
-	// PropertyDescriptor pd = BeanUtils.getPropertyDescriptor(toPut.getClass(),
-	// propertyName);
-	// Object o = pd.getReadMethod().invoke(toPut);
-	// fromIndex = index + 1;
-	// toPut = o;
-	// name = el.substring(fromIndex);
-	// index = el.indexOf('.', index + 1);
-	// }
-	// PropertyDescriptor pd = BeanUtils.getPropertyDescriptor(toPut.getClass(),
-	// name);
-	// r = pd.getReadMethod().invoke(toPut);
-	// } catch (Exception e) {
-	// throw new RuntimeException(e);
-	// }
-	// return r;
-	// }
-
 	public Condition buildCondition(T vo) {
 		List<String> els = new ArrayList<String>();
 		EntitySqlBuilder.getCndProperty(null, entityOrTable, els);
@@ -362,7 +329,8 @@ public class CommonDAOImpl<T> implements CommonDAO<T> {
 				cd.getParameters().putAll(mainCnd.getParameters());
 				// cnd 参数copy
 			}
-			return this.daoFactory.getDAO(clazz, r.getRelObjectId()).query(cd); // TODO queryWithChildren?
+			return this.daoFactory.getDAO(clazz, r.getRelObjectId()).queryWithChildren(cd); // TODO
+																				// queryWithChildren?
 		}
 		throw new RuntimeException("can not found child aliased " + childAlias);
 	}

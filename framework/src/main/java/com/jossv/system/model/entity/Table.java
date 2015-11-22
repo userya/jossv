@@ -17,7 +17,7 @@ public class Table {
 	@Main(alias = "t")
 	private TableVO table ;
 	
-	@Relationship(alias = "cols", condition = "${cols.tableId} = ${t.id}", type = RelationshipType.child)
+	@Relationship(alias = "cols", type = RelationshipType.child, sourceId="tableId", targetId = "t.id")
 	private List<ColumnVO> columns = new ArrayList<>();
 
 	public TableVO getTable() {

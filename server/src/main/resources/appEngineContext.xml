@@ -4,7 +4,7 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="appContainer" class="com.jossv.framework.engine.AppContainerImpl">
+    <bean id="appContainer" class="com.jossv.framework.engine.AppContainerImpl" init-method="init">
         <property name="systemService" ref="systemService"></property>
     </bean>
 
