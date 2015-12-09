@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.jossv.system.model.entity.App;
 import com.jossv.system.service.SystemService;
 
@@ -39,15 +36,23 @@ public class AppContainerImpl implements AppContainer {
 	public boolean contain(String appid) {
 		return appMap.containsKey(appid);
 	}
-
-	public void invokePage(HttpServletRequest request, HttpServletResponse response, String appid, String pageId) {
-		appMap.get(appid).processInvoke(request, response, pageId);
+	
+	public StageEngine getStageEngine(String appid, String stageId){
+		if(appMap.containsKey(appid) && appMap.get(appid).getStageEngine(stageId) != null) {
+			return appMap.get(appid).getStageEngine(stageId);
+		}
+		return null;
 	}
 
-	public void invokePageService(HttpServletRequest request, HttpServletResponse response, String appid, String pageId,
-			String serviceId) {
-		appMap.get(appid).processInvoke(request, response, pageId, serviceId);
-	}
+//	public void invokePage(String appid, String stage,
+//			String pageId) {
+//		appMap.get(appid).processInvoke(stage, pageId);
+//	}
+//
+//	public void invokePageService(String appid, String stage,
+//			String pageId, String serviceId) {
+//		appMap.get(appid).processInvoke(pageId, stage, serviceId);
+//	}
 
 	@Override
 	public void addApp(String appid) {

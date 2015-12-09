@@ -23,6 +23,7 @@ import com.jossv.framework.dao.annotation.Relationship;
 import com.jossv.framework.dao.annotation.RelationshipType;
 import com.jossv.framework.dao.model.DefineAble;
 import com.jossv.framework.dao.sql.Condition;
+import com.jossv.framework.exception.BaseException;
 
 public class ClassEntityFactory implements EntityFactory {
 
@@ -44,7 +45,8 @@ public class ClassEntityFactory implements EntityFactory {
 
 	protected Object lock = new Object();
 
-	public void init() throws ClassNotFoundException {
+	
+	public void init() {
 		synchronized (lock) {
 			try {
 				Class<?>[] tables = RefUtils.getClasses(scanPackage, Entity.class);
@@ -64,7 +66,13 @@ public class ClassEntityFactory implements EntityFactory {
 		}
 		// System.out.println(tableMap);
 		for (final String className : entityMap.keySet()) {
-			final Class<?> clazz = Class.forName(className);
+			Class<?> clazz;
+			try {
+				clazz = Class.forName(className);
+			} catch (ClassNotFoundException e1) {
+				e1.printStackTrace();
+				throw new BaseException(e1);
+			}
 			final com.jossv.framework.dao.model.Entity e = entityMap.get(className);
 			ReflectionUtils.doWithLocalFields(clazz, new FieldCallback() {
 				public void doWith(Field field) throws IllegalArgumentException, IllegalAccessException {
@@ -109,7 +117,7 @@ public class ClassEntityFactory implements EntityFactory {
 						String alias = ship.alias();
 						String condition = ship.condition();
 						RelationshipType type = ship.type();
-						
+
 						com.jossv.framework.dao.model.Relationship sp = new com.jossv.framework.dao.model.Relationship();
 						sp.setSourceId(ship.sourceId());
 						sp.setTargetId(ship.targetId());
@@ -117,8 +125,10 @@ public class ClassEntityFactory implements EntityFactory {
 						sp.setRelObject(d);
 						sp.setTargetClass(fieldClass);
 						sp.setRelObjectId(fieldClass.getName());
-						Condition cnd = (condition == null || condition.trim().equals("")) ? null : new Condition(condition) ;
-						if(cnd == null && StringUtils.hasText(ship.sourceId()) && StringUtils.hasText(ship.targetId())) {
+						Condition cnd = (condition == null || condition.trim().equals("")) ? null
+								: new Condition(condition);
+						if (cnd == null && StringUtils.hasText(ship.sourceId())
+								&& StringUtils.hasText(ship.targetId())) {
 							cnd = new Condition("${" + ship.sourceId() + "} = ${" + ship.targetId() + "}");
 						}
 						sp.setCondition(cnd);
@@ -139,7 +149,7 @@ public class ClassEntityFactory implements EntityFactory {
 
 	private com.jossv.framework.dao.model.Entity createEntity(Class<?> clazz) {
 		com.jossv.framework.dao.model.Entity entity = new com.jossv.framework.dao.model.Entity();
-//		Entity ea = clazz.getAnnotation(Entity.class);
+		// Entity ea = clazz.getAnnotation(Entity.class);
 		String id = clazz.getName();
 		entity.setId(id);
 		return entity;
@@ -164,8 +174,6 @@ public class ClassEntityFactory implements EntityFactory {
 	public Map<String, com.jossv.framework.dao.model.Entity> getEntityMap() {
 		return entityMap;
 	}
-
-
 
 	public Map<String, Map<String, String>> getPropertyMap() {
 		return propertyMap;

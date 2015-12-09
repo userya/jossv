@@ -6,11 +6,9 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.ReflectionUtils.FieldCallback;
-import org.springframework.util.TypeUtils;
 
 import com.jossv.framework.dao.TableFactory;
 import com.jossv.framework.dao.annotation.Column;

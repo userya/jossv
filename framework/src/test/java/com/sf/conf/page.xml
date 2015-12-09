@@ -1,0 +1,39 @@
+
+<div>
+	<header id="fff">
+		<field />
+	</header>
+	<div>
+		<group id="aa" name="bb">
+			<col>
+				<div style="backgroud:#ccc">
+					<field>
+						<p></p>
+					</field>
+				</div>
+			</col>
+			<col>
+				<field onclick="" value="dd"/>
+			</col>
+			<col>
+				<field />
+			</col>
+			<col>
+				<field />
+			</col>
+			<col>
+				<field />
+			</col>
+			<col>
+				<field />
+			</col>
+			<col>
+				<img></img>
+			</col>
+			<col>
+				<field />
+			</col>
+		</group>
+	</div>
+
+</div>

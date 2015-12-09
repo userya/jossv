@@ -7,7 +7,7 @@ public class DatabaseEntityFactory extends ClassEntityFactory {
 	private DruidDataSource dataSource;
 	
 	@Override
-	public void init() throws ClassNotFoundException {
+	public void init() {
 		
 		super.init();
 	}
