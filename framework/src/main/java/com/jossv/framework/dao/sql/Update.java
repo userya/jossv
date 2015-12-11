@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import com.jossv.framework.dao.model.Column;
 import com.jossv.framework.dao.model.Table;
 
 /*
@@ -60,12 +59,12 @@ public class Update implements SqlPart {
 	public List<VirtualColumn> getVirtualColums() {
 		List<VirtualColumn> list = new ArrayList<VirtualColumn>();
 		if (table != null) {
-			for (int i = 0; i < table.getColumns().size(); i++) {
-				Column column = table.getColumns().get(i);
+			for (int i = 0; i < table.getColumn().size(); i++) {
+				com.jossv.model.table.Column column = table.getColumn().get(i);
 				VirtualColumn vc = new VirtualColumn();
 				vc.setAlias(alias);
 				vc.setExp(column.getName());
-				vc.setName(column.getColumnName());
+				vc.setName(column.getColumnName()  == null ? column.getName() : column.getColumnName());
 				vc.setPhysicalColumn(column);
 				vc.setSource(table);
 				list.add(vc);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns="http://www.jossv.com/model/page" id="test">
+	<layout>
+		<div>
+			1111
+		</div>
+	</layout>
+	<config>
+		var d = {};
+	</config>
+</page>

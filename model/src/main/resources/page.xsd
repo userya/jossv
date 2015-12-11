@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.jossv.com/model/page" xmlns="http://www.jossv.com/model/page"
+	elementFormDefault="qualified">
+	<xs:element name="page">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="layout"></xs:element>
+				<xs:element ref="config"></xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="layout">
+
+	</xs:element>
+
+	<xs:element name="config" type="xs:string">
+		
+	</xs:element>
+
+</xs:schema>

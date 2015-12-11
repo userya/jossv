@@ -29,7 +29,7 @@ public class JotClassRowMapper<T> implements RowMapper<T> {
 			for (int i = 0; i < columns.size(); i++) {
 				VirtualColumn vc = columns.get(i);
 				String columnName = vc.getAliasName();
-				String type = vc.getPhysicalColumn().getType();
+				String type = vc.getPhysicalColumn().getType().name();
 				TypeHandler handler = TypeHandlerUtils.getTypeHandler(ColumnType.valueOf(type));
 				String el = vc.getExp();
 				Object value = handler.getValue(rs, columnName);

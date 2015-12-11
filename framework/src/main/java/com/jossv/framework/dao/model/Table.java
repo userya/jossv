@@ -1,12 +1,13 @@
 package com.jossv.framework.dao.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.jossv.framework.dao.sql.DbAtom;
 
-public class Table extends DbAtom implements DefineAble {
+public class Table extends com.jossv.model.table.Table implements DefineAble, DbAtom {
 
+	
+//	private List<Column> columns = new ArrayList<Column>();
+	
+	/*
 	private String id;
 
 	private String tableName;
@@ -16,9 +17,9 @@ public class Table extends DbAtom implements DefineAble {
 	private String pkColumn = "id";
 
 	private Boolean view = false;
-	
+
 	private Boolean virtual = false;
-	
+
 	private List<Column> columns = new ArrayList<Column>();
 
 	public String getId() {
@@ -76,4 +77,5 @@ public class Table extends DbAtom implements DefineAble {
 	public void setColumns(List<Column> columns) {
 		this.columns = columns;
 	}
+	*/
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.jossv.com/model/service" xmlns="http://www.jossv.com/model/service"
+	elementFormDefault="qualified">
+	<xs:element name="services">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="service" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="service">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="input-parameter" minOccurs="0"
+					maxOccurs="unbounded" />
+				<xs:element name="action" type="xs:string"></xs:element>
+				<xs:element ref="out-parameter" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+			<xs:attribute name="language" default="groovy" type="xs:string"></xs:attribute>
+			<xs:attribute name="auth" default="true" type="xs:boolean"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="input-parameter">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" ></xs:attribute>
+			<xs:attribute name="value"></xs:attribute>
+			<xs:attribute name="validator" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="out-parameter">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+			<xs:attribute name="value" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+
+
+</xs:schema>

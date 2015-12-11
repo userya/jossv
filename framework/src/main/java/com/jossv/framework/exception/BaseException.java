@@ -4,7 +4,12 @@ package com.jossv.framework.exception;
  * Created by yangjiankang on 15/11/18.
  */
 public class BaseException extends RuntimeException {
-    public BaseException() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1845007684503296398L;
+
+	public BaseException() {
         super();
     }
 

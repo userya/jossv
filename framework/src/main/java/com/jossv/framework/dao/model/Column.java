@@ -1,31 +1,30 @@
 package com.jossv.framework.dao.model;
 
-import com.jossv.framework.dao.type.ColumnType;
-
-public class Column {
+public class Column extends com.jossv.model.table.Column {
 	
+	/*
 	private String name;
-	@com.jossv.framework.dao.annotation.Column(name="_type")
+	@com.jossv.framework.dao.annotation.Column(name = "_type")
 	private String type = "STRING";
-	@com.jossv.framework.dao.annotation.Column(name="_uniq", type=ColumnType.BOOLEAN)
+	@com.jossv.framework.dao.annotation.Column(name = "_uniq", type = ColumnType.BOOLEAN)
 	private Boolean unique = false;
-	@com.jossv.framework.dao.annotation.Column(name="_nullable", type=ColumnType.BOOLEAN)
+	@com.jossv.framework.dao.annotation.Column(name = "_nullable", type = ColumnType.BOOLEAN)
 	private Boolean nullable = true;
-	@com.jossv.framework.dao.annotation.Column(name="_len", type=ColumnType.INTEGER)
+	@com.jossv.framework.dao.annotation.Column(name = "_len", type = ColumnType.INTEGER)
 	private Integer length = 255;
-	
-	@com.jossv.framework.dao.annotation.Column(name="_precision", type=ColumnType.INTEGER)
+
+	@com.jossv.framework.dao.annotation.Column(name = "_precision", type = ColumnType.INTEGER)
 	private Integer precision = 0;
-	@com.jossv.framework.dao.annotation.Column(name="_scale", type=ColumnType.INTEGER)
+	@com.jossv.framework.dao.annotation.Column(name = "_scale", type = ColumnType.INTEGER)
 	private Integer scale = 0;
-	
-	@com.jossv.framework.dao.annotation.Column(name="_label")
+
+	@com.jossv.framework.dao.annotation.Column(name = "_label")
 	private String label;
-	
+
 	private String columnName;
-	
+
 	private String codeNumber;
-	
+
 	private String dateFormat;
 
 	public String getName() {
@@ -44,7 +43,7 @@ public class Column {
 		this.type = type;
 	}
 
-	public boolean isUnique() {
+	public Boolean isUnique() {
 		return unique;
 	}
 
@@ -52,7 +51,7 @@ public class Column {
 		this.unique = unique;
 	}
 
-	public boolean isNullable() {
+	public Boolean isNullable() {
 		return nullable;
 	}
 
@@ -60,7 +59,7 @@ public class Column {
 		this.nullable = nullable;
 	}
 
-	public int getLength() {
+	public Integer getLength() {
 		return length;
 	}
 
@@ -68,7 +67,7 @@ public class Column {
 		this.length = length;
 	}
 
-	public int getPrecision() {
+	public Integer getPrecision() {
 		return precision;
 	}
 
@@ -76,7 +75,7 @@ public class Column {
 		this.precision = precision;
 	}
 
-	public int getScale() {
+	public Integer getScale() {
 		return scale;
 	}
 
@@ -115,9 +114,5 @@ public class Column {
 	public void setDateFormat(String dateFormat) {
 		this.dateFormat = dateFormat;
 	}
-	
-	
-	
-	
-	
+	*/
 }

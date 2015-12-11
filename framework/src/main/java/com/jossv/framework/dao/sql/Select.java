@@ -11,7 +11,7 @@ import com.jossv.framework.dao.model.Table;
 
 import freemarker.template.TemplateException;
 
-public class Select extends DbAtom implements SqlPart {
+public class Select  implements SqlPart, DbAtom {
 
 	private SelectPart mainPart;
 
@@ -27,7 +27,7 @@ public class Select extends DbAtom implements SqlPart {
 		List<VirtualColumn> list = new ArrayList<VirtualColumn>();
 		if (part instanceof Table) {
 			Table t = (Table) part;
-			for (Column column : t.getColumns()) {
+			for (com.jossv.model.table.Column column : t.getColumn()) {
 				VirtualColumn c = new VirtualColumn();
 				c.setAlias(alias);
 				c.setSource(part);
@@ -37,7 +37,7 @@ public class Select extends DbAtom implements SqlPart {
 				} else {
 					c.setExp(alias + "." + column.getName());
 				}
-				c.setName(column.getColumnName());
+				c.setName(column.getColumnName()  == null ? column.getName() : column.getColumnName());
 				list.add(c);
 			}
 
@@ -138,8 +138,8 @@ public class Select extends DbAtom implements SqlPart {
 		Column username = new Column();
 		username.setName("username");
 		username.setColumnName("user_name");
-		table.getColumns().add(id);
-		table.getColumns().add(username);
+		table.getColumn().add(id);
+		table.getColumn().add(username);
 		Select select = new Select();
 		select.setMainPart(new SelectPart("t", table));
 		JoinPart join = new JoinPart();

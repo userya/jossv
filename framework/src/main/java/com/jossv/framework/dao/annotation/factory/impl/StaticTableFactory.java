@@ -1,10 +1,11 @@
 package com.jossv.framework.dao.annotation.factory.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-import com.jossv.system.model.entity.Table;
-import com.jossv.system.model.table.ColumnVO;
-import com.jossv.system.model.table.TableVO;
+import org.apache.commons.beanutils.BeanUtils;
+
+import com.jossv.model.table.Table;
 
 public class StaticTableFactory extends ClassTableFactory {
 
@@ -21,13 +22,13 @@ public class StaticTableFactory extends ClassTableFactory {
 			return;
 		}
 		for (Table table : tables) {
-			TableVO t = table.getTable();
-			List<ColumnVO> list = table.getColumns();
-			if (list != null) {
-				for (ColumnVO columnVO : list) {
-					t.getColumns().add(columnVO);
-				}
+			com.jossv.framework.dao.model.Table t = new com.jossv.framework.dao.model.Table();
+			try {
+				BeanUtils.copyProperties(t, table);
+			} catch (IllegalAccessException | InvocationTargetException e) {
+				e.printStackTrace();
 			}
+			t.getColumn().addAll(table.getColumn());
 			tableMap.put(t.getId(), t);
 		}
 	}

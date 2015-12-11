@@ -6,4 +6,5 @@ public interface DaoFactory {
 
 	<T> CommonDAO<T> getDAO(Class<T> clazz, String id);
 	
+	void initSchema();
 }

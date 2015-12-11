@@ -30,8 +30,9 @@ public class SystemServiceImpl implements SystemService {
 	}
 
 	@Override
-	public List<App> getAllApp() {
+	public List<com.jossv.reader.impl.App> getAllApp() {
 		CommonDAO<App> dao = daoFactory.getDAO(App.class);
-		return dao.queryWithChildren(null);
+//		return dao.queryWithChildren(null);
+		return null; 
 	}
 }

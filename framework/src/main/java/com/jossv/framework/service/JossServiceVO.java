@@ -15,6 +15,10 @@ public class JossServiceVO {
 	
 	private Boolean auth = true; 
 
+	private String actions; // script first groovy;
+	
+	private String language = "groovy";
+	
 	private Map<String, JossServiceVO> refService = new HashMap<>();
 
 	private List<InputParameter> inputParameters = new ArrayList<>();
@@ -23,7 +27,7 @@ public class JossServiceVO {
 
 	private List<AutoParameter> autoParameters = new ArrayList<>();
 
-	private String actions; // script first groovy;
+	
 
 	public String getId() {
 		return id;
@@ -79,6 +83,14 @@ public class JossServiceVO {
 
 	public void setAuth(Boolean auth) {
 		this.auth = auth;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 }

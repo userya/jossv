@@ -4,9 +4,13 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="appContainer" class="com.jossv.framework.engine.AppContainerImpl" init-method="init">
-        <property name="systemService" ref="systemService"></property>
+    <bean id="appContainer" class="com.jossv.framework.engine.impl.AppContainerImpl" init-method="init">
+        <property name="appsReader" ref="appsReader"></property>
     </bean>
+
+	<bean id="appsReader" class="com.jossv.reader.impl.AppsReaderImpl" init-method="load">
+		<property name="resourcePath" value="/Users/yangjiankang/Documents/workspace/jossv/base/apps"></property>
+	</bean>
 
 </beans>
 

@@ -53,12 +53,11 @@ public class SchemaGenerator {
 		PrimaryKey pk = new PrimaryKey();
 		pk.setTable(table);
 		Map<String, Column> propMap = new HashMap<String, Column>();
-
-		for (com.jossv.framework.dao.model.Column c : entity.getColumns()) {
+		for (com.jossv.model.table.Column c : entity.getColumn()) {
 			Column column = new Column();
-			column.setName(c.getColumnName());
+			column.setName(c.getColumnName() == null ? c.getName() : c.getColumnName());
 			SimpleValue simpleValue = new SimpleValue(mappings, table);
-			String htype = ColumnTypeUtils.getHibernateType(ColumnType.valueOf(c.getType()));
+			String htype = ColumnTypeUtils.getHibernateType(ColumnType.valueOf(c.getType().name()));
 			simpleValue.setTypeName(htype);
 			column.setValue(simpleValue);
 			column.setNullable(c.isNullable());
@@ -132,7 +131,7 @@ public class SchemaGenerator {
 		Mappings mappings = configuration.createMappings();
 		if (maps != null) {
 			for (com.jossv.framework.dao.model.Table table : maps.values()) {
-				if (table.getView() || table.getVirtual()) {
+				if (table.isView() || table.isVirtual()) {
 					continue;
 				}
 				this.getTable(table, mappings);
@@ -148,7 +147,7 @@ public class SchemaGenerator {
 		Mappings mappings = configuration.createMappings();
 		if (maps != null) {
 			for (com.jossv.framework.dao.model.Table table : maps.values()) {
-				if (table.getView() || table.getVirtual()) {
+				if (table.isView() || table.isVirtual()) {
 					continue;
 				}
 				this.getTable(table, mappings);

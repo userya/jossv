@@ -3,7 +3,6 @@ package com.jossv.framework.dao.utils;
 import java.util.List;
 import java.util.Map;
 
-import com.jossv.framework.dao.model.Column;
 import com.jossv.framework.dao.model.DefineAble;
 import com.jossv.framework.dao.model.Entity;
 import com.jossv.framework.dao.model.Relationship;
@@ -48,7 +47,7 @@ public class EntitySqlBuilder {
 	public static void getCndProperty(String alias , DefineAble entityOrTable, List<String> list){
 		if (entityOrTable instanceof Table) {
 			Table t = ((Table) entityOrTable);
-			for(Column c : t.getColumns()) {
+			for(com.jossv.model.table.Column c : t.getColumn()) {
 				String n = c.getName();
 				if(alias != null && alias.trim().length() >0) {
 					n = alias + "." + n;

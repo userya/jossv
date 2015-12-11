@@ -318,6 +318,7 @@
 		</plugins>
 	</build>
 	<modules>
+		<module>model</module>
 		<module>framework</module>
 		<module>server</module>
   </modules>

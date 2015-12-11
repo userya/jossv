@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.jossv.com/model/data" xmlns="http://www.jossv.com/model/data"
+	elementFormDefault="qualified">
+	<xs:element name="datas">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="data" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="data">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="row" type="xs:string" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="table"></xs:attribute>
+			<xs:attribute name="operationType"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+
+</xs:schema>

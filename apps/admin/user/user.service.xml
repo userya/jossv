@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns="http://www.jossv.com/model/service">
+	<service id="test" language="groovy">
+		<input-parameter name="aa"/>
+		<action>
+			println("hello world!!!");
+			println(daos['admin.euser'].query(null));
+			return ["x":daos['admin.euser'].query(null)];
+		</action>
+		<out-parameter name=""/>
+	</service>
+</services>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.jossv.com/model/entity" xmlns="http://www.jossv.com/model/entity"
+	elementFormDefault="qualified">
+	<xs:element name="entities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="entity" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="entity">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="relationship" minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			<xs:attribute name="id" use="required" type="xs:string"></xs:attribute>
+			<xs:attribute name="main" use="required" type="xs:string"></xs:attribute>
+			<xs:attribute name="mainAlias" use="required" type="xs:string"></xs:attribute>
+			<xs:attribute name="mainCondition" use="optional" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="relationship">
+		<xs:complexType>
+			<xs:attribute name="alias" use="required" type="xs:string"></xs:attribute>
+			<xs:attribute name="relObjectId" use="required" type="xs:string"></xs:attribute>
+			<xs:attribute name="condition" type="xs:string"></xs:attribute>
+			<xs:attribute name="type" use="required" type="relationshipType"></xs:attribute>
+			<xs:attribute name="sourceId" type="xs:string"></xs:attribute>
+			<xs:attribute name="targetId" type="xs:string"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:simpleType name="relationshipType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ref" />
+			<xs:enumeration value="child" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

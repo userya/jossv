@@ -1,12 +1,12 @@
 package com.jossv.framework.dao.sql;
 
-import com.jossv.framework.dao.model.Column;
+import com.jossv.model.table.Column;
 
 public class VirtualColumn {
 
 	private DbAtom source;
 
-	private Column physicalColumn;
+	private com.jossv.model.table.Column physicalColumn;
 
 	private String alias;
 

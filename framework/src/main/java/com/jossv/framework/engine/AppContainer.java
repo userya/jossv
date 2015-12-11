@@ -11,7 +11,7 @@ public interface AppContainer {
 //
 //    void invokePageService( String appid,String stage,  String pageId, String serviceId);
     
-    StageEngine getStageEngine(String appid, String stageId);
+    AppEngine getAppEngine(String appid);
 
     void addApp(String appid);
 

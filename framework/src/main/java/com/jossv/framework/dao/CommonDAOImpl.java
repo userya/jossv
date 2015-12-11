@@ -89,7 +89,7 @@ public class CommonDAOImpl<T> implements CommonDAO<T> {
 						if (columnMap.containsKey(exp)) {
 							VirtualColumn vc = columnMap.get(exp);
 							Object val = v.getValue();
-							ColumnType ct = ColumnType.valueOf(vc.getPhysicalColumn().getType());
+							ColumnType ct = ColumnType.valueOf(vc.getPhysicalColumn().getType().name());
 							Integer sqlType = ColumnTypeUtils.getJdbcType(ct);
 							SqlParameterValue spv = new SqlParameterValue(sqlType,
 									TypeHandlerUtils.getTypeHandler(ct).getJdbcParameter(val));

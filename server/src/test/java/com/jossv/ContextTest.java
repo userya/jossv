@@ -1,5 +1,7 @@
 package com.jossv;
 
+import java.util.HashMap;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jossv.framework.engine.AppContainer;
@@ -7,11 +9,15 @@ import com.jossv.framework.engine.AppContainer;
 public class ContextTest {
 
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
+		
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
 		AppContainer app = context.getBean(AppContainer.class);
-		System.out.println(app.contain("aa"));
+		System.out.println(app.contain("admin"));
+		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
+		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
+		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
+		context.close();
+		
 	}
-	
-	
+
 }

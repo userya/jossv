@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.jossv.com/model/config">
+	<property name="dataSource">
+    	<![CDATA[
+    	{
+    		jdbc_url:'jdbc:mysql://127.0.0.1:3306/jot?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false',
+    		jdbc_driver:'com.mysql.jdbc.Driver',
+    		jdbc_user:'admin',
+    		jdbc_password:'admin'
+    	}
+		]]>
+    </property>
+</config>

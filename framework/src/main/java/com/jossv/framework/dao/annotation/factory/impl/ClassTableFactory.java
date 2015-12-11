@@ -123,7 +123,7 @@ public class ClassTableFactory implements TableFactory {
 				}
 				
 				column.setName(name);
-				column.setType(type);
+				column.setType(com.jossv.model.table.ColumnType.valueOf(type));
 				column.setUnique(unique);
 				column.setNullable(nullable);
 				column.setLength(length);
@@ -133,7 +133,7 @@ public class ClassTableFactory implements TableFactory {
 				column.setColumnName(columnName);
 				column.setCodeNumber(codeNumber);
 				column.setDateFormat(dateFormat);
-				tbl.getColumns().add(column);
+				tbl.getColumn().add(column);
 			}
 		});
 		return tbl;

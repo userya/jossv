@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tables xmlns="http://www.jossv.com/model/table">
+	<table id="test" label="1">
+		<column name="id" type="aa" />
+	</table>
+</tables>

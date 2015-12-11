@@ -9,7 +9,7 @@ import com.jossv.system.model.entity.App;
  */
 public interface SystemService {
 
-	List<App> getAllApp();
+	List<com.jossv.reader.impl.App> getAllApp();
 	
 	App getApp(Long id);
 
