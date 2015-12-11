@@ -45,7 +45,7 @@ public class PageFactoryImpl implements PageFactory {
 					StringWriter buffer = new StringWriter();
 					transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
 					transformer.transform(new DOMSource(node.getFirstChild()), new StreamResult(buffer));
-					String str = buffer.toString();
+					String str = buffer.toString().replaceFirst("xmlns=\"http://www.jossv.com/model/page\"", "");
 					render.setLayout(str);
 				} catch (TransformerConfigurationException e) {
 					e.printStackTrace();

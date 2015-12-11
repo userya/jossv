@@ -24,6 +24,7 @@ public interface AppEngine {
 
 	void processService(String stageId, String serviceId, Map<String, Object> parameters);
 	
+	String getPage(String stageId, String pageId);
 	
 	
 }

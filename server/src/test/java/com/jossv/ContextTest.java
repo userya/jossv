@@ -16,6 +16,8 @@ public class ContextTest {
 		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
 		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
 		app.getAppEngine("admin").processService("user", "test", new HashMap<>());
+		String s = app.getAppEngine("admin").getPage("user", "test");
+		System.out.println(s);
 		context.close();
 		
 	}
