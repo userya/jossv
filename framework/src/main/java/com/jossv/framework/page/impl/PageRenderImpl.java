@@ -69,6 +69,7 @@ public class PageRenderImpl implements PageRender {
 		Template tpl = FreemarkerUtils.getTemplate(htmlTemplate);
 		Map<String, Object> data = new HashMap<String, Object>();
 		data.put("layout", this.layoutHtml);
+		data.put("config", page.getConfig());
 		try {
 			tpl.process(data, out);
 		} catch (TemplateException | IOException e) {

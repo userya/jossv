@@ -7,6 +7,8 @@
 		</div>
 	</layout>
 	<config>
-		var d = {};
+		{
+			username : {}
+		}
 	</config>
 </page>

@@ -11,6 +11,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
 import org.apache.commons.io.monitor.FileAlterationMonitor;
 import org.apache.commons.io.monitor.FileAlterationObserver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jossv.model.config.Config;
 import com.jossv.model.data.Datas;
@@ -32,6 +34,8 @@ import com.jossv.reader.ModelReader;
  */
 public class AppsReaderImpl extends Observable implements AppsReader {
 
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	private String resourcePath;
 
 	private File root;
@@ -57,6 +61,7 @@ public class AppsReaderImpl extends Observable implements AppsReader {
 				@Override
 				public void onFileChange(File file) {
 					if (file.getName().indexOf(".xml") > -1) {
+						log.debug("file:{} changed.", file.getPath());
 						reload();
 					}
 				}
@@ -74,9 +79,11 @@ public class AppsReaderImpl extends Observable implements AppsReader {
 	}
 
 	public void reload() {
+		
 		apps.clear();
 		loadXml();
 		setChanged();
+		notifyObservers();
 	}
 
 	public void loadXml() {

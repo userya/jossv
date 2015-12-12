@@ -25,6 +25,7 @@
         <property name="testOnReturn" value="false" />
     </bean>
 
+	<!-- 
     <bean id="classTableFactory" class="com.jossv.framework.dao.annotation.factory.impl.ClassTableFactory" init-method="init">
         <property name="scanPackage" value="com.jossv.system.model.table"></property>
     </bean>
@@ -43,6 +44,7 @@
         <property name="daoFactory" ref="systemDaoFactory"></property>
     </bean>
 
+	 -->
 
 
 </beans>

@@ -7,7 +7,9 @@
 <body>
 
 ${layout}
-
-
+<script>
+${config}
+</script>
+<script src="s" type="text/javascript"></script>
 </body>
 </html>

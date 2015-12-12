@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jossv.framework.engine.AppContainer;
-import com.jossv.framework.engine.StageEngine;
+import com.jossv.framework.engine.AppEngine;
 
 @Controller
 public class PageController {
@@ -19,20 +19,19 @@ public class PageController {
 	@RequestMapping("/{appId}/{stageId}/{pageId}")
 	public void page(@PathVariable String appId, @PathVariable String stageId, @PathVariable String pageId,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		StageEngine engine = appContainer.getStageEngine(stageId, stageId);
-		if(engine == null) {
+		AppEngine engine = appContainer.getAppEngine(appId);
+		if (engine == null) {
 			throw new RuntimeException("404");
 		}
-//		appContainer.invokePage(appId, stageId, pageId);
+		String html = engine.getPage(stageId, pageId);
+		response.setCharacterEncoding("utf-8");
+		response.getWriter().write(html);
 	}
 
 	@RequestMapping("/{appId}/{stageId}/{pageId}/{serviceId}")
 	public void page(@PathVariable String appId, @PathVariable String stageId, @PathVariable String pageId,
 			@PathVariable String serviceId, HttpServletRequest request, HttpServletResponse response) throws Exception {
-		StageEngine engine = appContainer.getStageEngine(stageId, stageId);
-		if(engine == null) {
-			throw new RuntimeException("404");
-		}
+
 	}
 
 	@Autowired
